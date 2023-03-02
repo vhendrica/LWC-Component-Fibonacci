@@ -1,0 +1,34 @@
+lightning-input {
+  font-size: 13px;
+}
+
+.botao1 {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.div2 {
+    margin-top: 10px;
+}
+
+p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-bottom: -20px;
+}
+
+placeholder {
+    text-align: center;
+}
