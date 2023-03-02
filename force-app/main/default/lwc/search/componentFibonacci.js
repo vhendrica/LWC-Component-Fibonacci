@@ -9,10 +9,10 @@ export default class Search extends LightningElement
 
     pegarValor(event)
     {
-    const nome = event.target.name;
-        if(nome === 'numero'){
+      const nome = event.target.name;
+        if(nome === 'numero')
+        {
             this.num = event.target.value;
-
         }
     }
 
@@ -37,18 +37,21 @@ export default class Search extends LightningElement
         }
     }
 
-    previous() {
+    previous()
+    {
         this.num--;
         this.resultadoFibo = this.Fibo(this.num);
     }
 
-    next() {
+    next() 
+    {
         this.num++;
         this.resultadoFibo = this.Fibo(this.num);
     }
 
 
-    handleClick() {
+    handleClick()
+    {
         
         if (this.num.trim() < 0)
         {
@@ -69,7 +72,8 @@ export default class Search extends LightningElement
     }
 
 
-    handleError() {
+    handleError()
+    {
         const error = new ShowToastEvent({
             title: 'Erro',
             message: 'O número inserido não pode ser negativo.',
@@ -77,10 +81,10 @@ export default class Search extends LightningElement
         });
         this.dispatchEvent(error);
 
-        }
+     }
 
     NaNError()
-     {
+    {
             const error = new ShowToastEvent({
                 title: 'Erro',
                 message: 'Por favor, insira somente números.',
@@ -91,7 +95,7 @@ export default class Search extends LightningElement
     }
 
     nullError()
-     {
+    {
             const error = new ShowToastEvent({
                 title: 'Erro',
                 message: 'Por favor, insira um número.',
@@ -100,6 +104,4 @@ export default class Search extends LightningElement
             this.dispatchEvent(error);
         
     }
-
-
 }
