@@ -1,15 +1,52 @@
 import { LightningElement } from "lwc";
 import { ShowToastEvent } from "lightning/platformShowToastEvent";
+/**
+ * TODO: add correct path to the static resource
+ * reference: https://developer.salesforce.com/docs/component-library/documentation/en/lwc/lwc.create_resources
+ */
+//import LOGO_FIBO from "@salesforce/resourceUrl/resourceReference";
 export default class Fibonacci extends LightningElement {
-    visible = false;
-    num = 0;
-    resultadoFibo;
+    state = {
+        images: {
+            /** TODO: 
+             * add static resource to the org
+             * add static resource in the repository
+             * uncomment next line 
+             * remove the another line
+             */
+            //logoFibo: LOGO_FIBO
+            logoFibo: 'blabla'
+        },
+        visibility: {
+            visible: false
+        },
+        num: 0,
+        result: 0
+    };
 
-    pegarValor(event) {
-        const nome = event.target.name;
-        if (nome === "numero") {
-            this.num = event.target.value;
-        }
+    setVisible(value) {
+        this.state.visibility.visible = value;
+    }
+    getVisible() {
+        return this.state.visible;
+    }
+    getNum() {
+        return this.state.num;
+    }
+    setNum(value) {
+        this.state.num = value;
+    }
+    getResultadoFibo() {
+        return this.state.result;
+    }
+    setResultadoFibo(value) {
+        this.state.result = value;
+    }
+    getImg() {
+        return this.state.images.logoFibo;
+    }
+    getMsg() {
+        return "FIBO(" + this.num + ") = " + this.resultadoFibo;
     }
 
     run(n) {
