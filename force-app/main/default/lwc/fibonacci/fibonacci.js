@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-export default class Search extends LightningElement 
+export default class Fibonacci extends LightningElement 
 {
   visible = false;
   num = 0;
