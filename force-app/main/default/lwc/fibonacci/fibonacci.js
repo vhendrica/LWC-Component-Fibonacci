@@ -12,26 +12,26 @@ export default class Fibonacci extends LightningElement {
         }
     }
 
-    Fibo(n) {
-        if (n < 0) {
+    run(n) {
+        if (!n || n < 0) {
             return null;
         } else if (n === 0) {
             return 0;
         } else if (n === 1) {
             return 1;
-        } else {
-            return this.Fibo(n - 1) + this.Fibo(n - 2);
         }
+
+        return this.run(n - 1) + this.run(n - 2);
     }
 
     previous() {
         this.num--;
-        this.resultadoFibo = this.Fibo(this.num);
+        this.resultadoFibo = this.run(this.num);
     }
 
     next() {
         this.num++;
-        this.resultadoFibo = this.Fibo(this.num);
+        this.resultadoFibo = this.run(this.num);
     }
 
     handleClick() {
@@ -43,7 +43,7 @@ export default class Fibonacci extends LightningElement {
             this.nullError();
         } else {
             this.visible = true;
-            this.resultadoFibo = this.Fibo(this.num.trim());
+            this.resultadoFibo = this.run(this.num.trim());
         }
     }
 
