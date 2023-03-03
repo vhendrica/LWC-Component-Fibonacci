@@ -24,6 +24,9 @@ export default class Fibonacci extends LightningElement {
     get msg() {
         return "FIBO(" + this.num + ") = " + this.resultadoFibo;
     }
+    get num() {
+        return this._num;
+    }
 
     set memory(value) {
         this._memory = value;
