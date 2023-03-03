@@ -2,27 +2,21 @@
     <lightning-card>
         <div class="slds-align_absolute-center">
             <div class="slds-grid slds-grid_align-center">
-                <img src="https://fibonacci-dev-ed--c.develop.vf.force.com/resource/1677762861000/Fibo1?" />
+                <img src={img} />
             </div>
         </div>
 
         <div class="slds-align_absolute-center">
             <div class="slds-grid slds-grid_align-center">
-                <lightning-input
-                    placeholder="Digite um número"
-                    name="numero"
-                    type="text"
-                    value={n}
-                    onchange={pegarValor}
-                ></lightning-input>
+                <lightning-input placeholder="Type a number" type="number" value={num} min="0"></lightning-input>
             </div>
         </div>
-        <lightning-button variant="Brand" label="Enviar" onclick={handleClick} class="botao1"></lightning-button>
+        <lightning-button variant="Brand" label="Send" onclick={handleClick} class="botao1"></lightning-button>
 
         <div class="div2" if:true={visible}>
             <div class="slds-align_absolute-center">
                 <div class="slds-grid slds-grid_align-center">
-                    <p>O {num}º número da sequência de Fibonacci é: {resultadoFibo}</p>
+                    <p>{msg}</p>
                 </div>
             </div>
 
@@ -30,7 +24,7 @@
                 <div class="slds-col">
                     <lightning-button
                         variant="Brand"
-                        label="Anterior"
+                        label="Previous"
                         onclick={previous}
                         class="slds-m-left_x-small"
                     ></lightning-button>
@@ -38,7 +32,7 @@
                 <div class="slds-col">
                     <lightning-button
                         variant="Brand"
-                        label="Próximo"
+                        label="Next"
                         onclick={next}
                         class="slds-m-left_x-small"
                     ></lightning-button>
