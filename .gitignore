@@ -1,3 +1,6 @@
 .vscode
 config
 node_modules
+.DS_Store
+config.json
+sfdx-config.json
