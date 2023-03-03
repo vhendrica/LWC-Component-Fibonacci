@@ -61,13 +61,11 @@ export default class Fibonacci extends LightningElement {
     }
 
     previous() {
-        this.num--;
-        this.resultadoFibo = this.run(this.num);
+        this.resultadoFibo = this.run(--this.num);
     }
 
     next() {
-        this.num++;
-        this.resultadoFibo = this.run(this.num);
+        this.resultadoFibo = this.run(++this.num);
     }
 
     /**
