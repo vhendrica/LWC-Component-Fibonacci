@@ -8,7 +8,12 @@
 
         <div class="slds-align_absolute-center">
             <div class="slds-grid slds-grid_align-center">
-                <lightning-input placeholder="Type a number" type="number" onchange={handleChange} min="0"></lightning-input>
+                <lightning-input
+                    placeholder="Type a number"
+                    type="number"
+                    onchange={handleChange}
+                    min="0"
+                ></lightning-input>
             </div>
         </div>
         <lightning-button variant="Brand" label="Send" onclick={handleClick} class="botao1"></lightning-button>
