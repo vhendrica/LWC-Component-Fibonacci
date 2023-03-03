@@ -71,43 +71,32 @@ export default class Fibonacci extends LightningElement {
         this.resultadoFibo = this.run(this.num);
     }
 
+    /**
+     * TODO:
+     * stop running validation like this
+     * validate in the onChange, using the input validation
+     * reference: https://developer.salesforce.com/docs/component-library/bundle/lightning-input/documentation
+     * ctrl+f : Custom Validity Error Messages
+     */
     handleClick() {
         if (this.num.trim() < 0) {
-            this.handleError();
+            this.showToast('Error', 'Negative number is not valid.', 'error')
         } else if (isNaN(this.num)) {
-            this.NaNError();
+            this.showToast('Error', 'Only numbers are allowed.', 'error')
         } else if (!this.num.trim()) {
-            this.nullError();
+            this.showToast('Error', 'Please, type a number.', 'error')
         } else {
             this.visible = true;
             this.resultadoFibo = this.run(this.num.trim());
         }
     }
 
-    handleError() {
-        const error = new ShowToastEvent({
-            title: "Erro",
-            message: "O número inserido não pode ser negativo.",
-            variant: "error"
+    showToast(title, msg, variant) {
+        const toast = new ShowToastEvent({
+            title: title,
+            message: msg,
+            variant: variant
         });
-        this.dispatchEvent(error);
-    }
-
-    NaNError() {
-        const error = new ShowToastEvent({
-            title: "Erro",
-            message: "Por favor, insira somente números.",
-            variant: "error"
-        });
-        this.dispatchEvent(error);
-    }
-
-    nullError() {
-        const error = new ShowToastEvent({
-            title: "Erro",
-            message: "Por favor, insira um número.",
-            variant: "error"
-        });
-        this.dispatchEvent(error);
+        this.dispatchEvent(toast);
     }
 }
